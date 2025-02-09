@@ -1,5 +1,3 @@
-# Chrome Headless Browser and Virtual Environment Setup
-
 ## Installing System Packages
 
 Run the following command to update and install necessary packages:
@@ -124,7 +122,7 @@ git push origin main
 ## Troubleshooting & Fixes
 
 - **`pandas.read_html()` returns `No tables found`**
-  - Ensure WSJ pages are fully loaded by increasing Chrome's timeout (`--virtual-time-budget=10000`).
+  - Ensure WSJ pages are fully loaded by increasing Chrome's timeout (`--virtual-time-budget=10000`) {VERY IMPORTANT! Otherwise, the JS doesn't load the tables on the page so nothing gets parsed}.
 - **`google-chrome-stable` not found**
   - Reinstall using `wget` and `apt install`.
 - **Missing Python modules (`ModuleNotFoundError`)**
@@ -134,6 +132,3 @@ git push origin main
     pip install -r requirements.txt
     ```
 
----
-
-This guide provides a structured approach to setting up the VM, installing dependencies, running headless Chrome, and troubleshooting issues. 🚀

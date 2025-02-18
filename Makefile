@@ -18,3 +18,10 @@ wjsgainers.html:
 
 wjsgainers.csv: wjsgainers.html
 	python3 -c "import pandas as pd; raw = pd.read_html('wjsgainers.html', flavor='lxml'); raw[0].to_csv('wjsgainers.csv')"
+
+lint:
+	flake8 bin/normalize_csv.py --max-line-length=100
+
+test:
+	pytest tests/
+

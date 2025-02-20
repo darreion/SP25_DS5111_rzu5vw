@@ -5,7 +5,7 @@ env:
 	python3 -m venv env; . env/bin/activate; pip install --upgrade pip
 
 update: env
-	. env/bin/activate; pip install -r requirements.txt
+	. env/bin/activate; pip install -r scripts/requirements.txt
 
 ygainers.html:
 	sudo google-chrome-stable --headless --disable-gpu --dump-dom --no-sandbox --timeout=5000 'https://finance.yahoo.com/markets/stocks/gainers/?start=0&count=200' > ygainers.html
@@ -20,8 +20,8 @@ wjsgainers.csv: wjsgainers.html
 	python3 -c "import pandas as pd; raw = pd.read_html('wjsgainers.html', flavor='lxml'); raw[0].to_csv('wjsgainers.csv')"
 
 lint:
-	flake8 bin/normalize_csv.py --max-line-length=100
+	pylint bin/normalize_csv.py
 
-test:
-	pytest tests/
+test: lint
+	pytest -vv tests/
 

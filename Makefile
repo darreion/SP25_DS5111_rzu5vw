@@ -5,7 +5,7 @@ env:
 	python3 -m venv env; . env/bin/activate; pip install --upgrade pip
 
 update: env
-	. env/bin/activate; pip install -r scripts/requirements.txt
+	source env/bin/activate && pip install -r scripts/requirements.txt
 
 ygainers.html:
 	sudo google-chrome-stable --headless --disable-gpu --dump-dom --no-sandbox --timeout=5000 'https://finance.yahoo.com/markets/stocks/gainers/?start=0&count=200' > ygainers.html

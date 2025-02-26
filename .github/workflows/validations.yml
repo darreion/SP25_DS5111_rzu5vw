@@ -24,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          make update
+         bash -c "make update"
 
       - name: Debug Tests Directory
         run: |

@@ -19,21 +19,32 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Debug Environment
+        run: |
+          echo "Current working directory: $(pwd)"
+          echo "Home directory: $HOME"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          ls -la
+
+      - name: Set Correct Working Directory
+        run: |
+          cd $GITHUB_WORKSPACE
+          echo "Corrected working directory: $(pwd)"
+
       - name: Install system dependencies
         run: sudo apt-get update && sudo apt-get install -y python3-venv
 
       - name: Install dependencies
         run: |
+          cd $GITHUB_WORKSPACE
           python3 -m venv env
           source env/bin/activate
-          python3 -m ensurepip --default-pip  # Ensures pip is available
+          python3 -m ensurepip --default-pip
           pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
       - name: Run OS and Python version tests
-        run: |
-          env/bin/python -m pytest tests/test_system.py
+        run: env/bin/python -m pytest tests/test_system.py
 
       - name: Test with pytest
-        run: |
-          env/bin/python -m pytest -vvx tests
+        run: env/bin/python -m pytest -vvx tests

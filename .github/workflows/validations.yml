@@ -1,3 +1,4 @@
+
 name: Feature Validation
 
 on:
@@ -40,11 +41,20 @@ jobs:
           python3 -m venv env
           source env/bin/activate
           python3 -m ensurepip --default-pip
-          pip install --upgrade pip
-          pip install -r scripts/requirements.txt
+          $GITHUB_WORKSPACE/env/bin/python -m pip install --upgrade pip
+          $GITHUB_WORKSPACE/env/bin/python -m pip install -r scripts/requirements.txt
+
+      - name: Debug Virtual Environment
+        run: |
+          echo "Python binary: $(which python)"
+          echo "Pip binary: $(which pip)"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          ls -la $GITHUB_WORKSPACE/env/bin/
 
       - name: Run OS and Python version tests
-        run: env/bin/python -m pytest tests/test_system.py
+        run: |
+          $GITHUB_WORKSPACE/env/bin/python -m pytest tests/test_system.py
 
       - name: Test with pytest
-        run: env/bin/python -m pytest -vvx tests
+        run: |
+          $GITHUB_WORKSPACE/env/bin/python -m pytest -vvx tests

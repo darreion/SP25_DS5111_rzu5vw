@@ -1,3 +1,6 @@
+![GitHub Actions Workflow](https://github.com/<darreion>/<SP25_DS5111_rzu5vw>/actions/workflows/validations.yml/badge.svg)
+
+
 ## Installing System Packages
 
 Run the following command to update and install necessary packages:

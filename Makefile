@@ -25,3 +25,6 @@ lint:
 test: lint
 	pytest -vv tests/
 
+
+gainers:
+	python3 get_gainer.py $(SRC)

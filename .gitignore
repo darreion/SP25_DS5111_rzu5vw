@@ -1,1 +1,5 @@
 google-chrome-stable_current_amd64.deb
+
+# Ignore compiled bytecode
+__pycache__/
+*.pyc

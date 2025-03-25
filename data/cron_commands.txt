@@ -1,0 +1,9 @@
+# Yahoo gainers (9:31am, 12:30pm, 4:01pm EST)
+31 14 * * 1-5 cd /home/ubuntu/SP25_DS5111_rzu5vw && ./env/bin/python get_gainer.py yahoo
+30 17 * * 1-5 cd /home/ubuntu/SP25_DS5111_rzu5vw && ./env/bin/python get_gainer.py yahoo
+1 21 * * 1-5 cd /home/ubuntu/SP25_DS5111_rzu5vw && ./env/bin/python get_gainer.py yahoo
+
+# WSJ gainers (9:31am, 12:30pm, 4:01pm EST)
+31 14 * * 1-5 cd /home/ubuntu/SP25_DS5111_rzu5vw && ./env/bin/python get_gainer.py wsj
+30 17 * * 1-5 cd /home/ubuntu/SP25_DS5111_rzu5vw && ./env/bin/python get_gainer.py wsj
+1 21 * * 1-5 cd /home/ubuntu/SP25_DS5111_rzu5vw && ./env/bin/python get_gainer.py wsj

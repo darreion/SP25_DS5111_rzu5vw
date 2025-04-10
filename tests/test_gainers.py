@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from bin.gainers.yahoo import GainerDownloadYahoo, GainerProcessYahoo
 from bin.gainers.wsj import GainerDownloadWSJ, GainerProcessWSJ
 
+# would be good to put a small description on the tests, would you give a Given/When/Then block a try on the tests?
 def test_yahoo_download():
     downloader = GainerDownloadYahoo()
     assert downloader.url == "https://finance.yahoo.com/gainers"

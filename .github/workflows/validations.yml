@@ -24,7 +24,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-         bash -c "make update"
+         bash -c "make update"  # There is a way to specify default shell, but I think bash
+                                # is the default so you shouldn't need the `bash -c`.  Was this a fix
+                                # for something?  
 
       - name: Debug Tests Directory
         run: |

@@ -1,5 +1,5 @@
 google-chrome-stable_current_amd64.deb
-
+# you have an env directory checked in.... please see the class recording for April 8 to see how to get rid of that and the __pychache__ and pyc files
 # Ignore compiled bytecode
 __pycache__/
 *.pyc

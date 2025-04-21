@@ -1,4 +1,3 @@
-
 version: 2
 
 models:
@@ -7,7 +6,7 @@ models:
     columns:
       - name: id
         description: "The primary key for this table"
-        data_tests:
+        tests:
           - unique
           - not_null
 
@@ -16,6 +15,25 @@ models:
     columns:
       - name: id
         description: "The primary key for this table"
-        data_tests:
+        tests:
           - unique
           - not_null
+
+  - name: french
+    description: "test french table"
+    columns:
+      - name: FR
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values: ['un', 'deux', 'trois']
+
+  - name: enfr
+    description: "EN to FR"
+    columns:
+      - name: EN
+        tests:
+          - relationships:
+              to: ref('ende')
+              field: EN

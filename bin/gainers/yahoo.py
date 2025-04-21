@@ -15,7 +15,7 @@ class GainerDownloadYahoo(GainerDownload):
         """Initialize with Yahoo URL."""
         super().__init__("https://finance.yahoo.com/gainers")
 
-    def download(self):
+    def download(self):  # you can make this operational as we mentioned in class by using os.system
         """Download Yahoo gainers data."""
         print("Downloading Yahoo gainers")
 
